@@ -10,6 +10,6 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String sayHello() {
-        return "Hello, wlcome to my new Humera and Mansoor project!";
+        return "Hello, Welcome to My New Home Mannat!";
     }
 }

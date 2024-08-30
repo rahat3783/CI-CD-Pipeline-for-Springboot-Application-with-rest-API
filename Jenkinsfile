@@ -23,26 +23,26 @@ pipeline {
             steps {
                 echo "Hello Java Express"
                 sh 'ls'
-                sh 'docker build -t  champ3783/jenkinsdeploy:${BUILD_NUMBER} .'
+                sh 'docker build -t  champ3783/spring-app:${BUILD_NUMBER} .'
             }
         }
         stage('Docker Login'){
             
             steps {
-                 withCredentials([string(credentialsId: 'DockersId', variable: 'Dockerpswd')]) {
+                 withCredentials([string(credentialsId: 'dockerid', variable: 'Dockerpswd')]) {
                     sh "docker login -u champ3783 -p ${Dockerpswd}"
                 }
             }                
         }
         stage('Docker Push'){
             steps {
-                sh 'docker push champ3783/jenkinsdeploy:${BUILD_NUMBER}'
+                sh 'docker push champ3783/spring-app:${BUILD_NUMBER}'
             }
         }
         stage('Docker deploy'){
             steps {
                
-                sh 'docker run -itd -p  8082:8080 champ3783/jenkinsdeploy:${BUILD_NUMBER}'
+                sh 'docker run -itd -p  8082:8080 champ3783/spring-app:${BUILD_NUMBER}'
             }
         }
         stage('Archving') { 

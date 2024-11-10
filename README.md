@@ -33,7 +33,7 @@ Pipeline Workflow
 
 step 1:
 
-    -create a EC2 Ubuntu instance
+    -create a EC2 Ubuntu instance and create a Dockerfile
 
 
 step 2:

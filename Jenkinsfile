@@ -42,7 +42,7 @@ pipeline {
                sh "docker push champ3783/demospringapp:latest"
                 withCredentials([UsernamePassword(
                     'credentialsId':"dockerid",
-                    passwordVariable: "dockerpass',
+                    passwordVariable: "dockerpass",
                     usernameVariable: "dockeruser")])
        
         stage('Docker deploy'){

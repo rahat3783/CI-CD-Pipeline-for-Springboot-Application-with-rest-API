@@ -37,14 +37,15 @@ pipeline {
         stage('push image to Dockerhub'){
             steps{
                 echo "pushing image to dockerhub"
-               sh "docker image tag demospringapp:latest champ3783/demospringapp:latest"
-                sh "docker login -u ${env.dockeruser} -p ${env.dockerpass}"
-               sh "docker push champ3783/demospringapp:latest"
-                withCredentials([UsernamePassword(
+               withCredentials([usernamePassword(
                     'credentialsId':"dockerid",
                     passwordVariable: "dockerpass",
-                    usernameVariable: "dockeruser")])
-            }
+                    usernameVariable: "dockeruser")]){
+                 sh "docker login -u ${env.dockeruser} -p ${env.dockerpass}"
+                 sh "docker image tag demospringapp:latest champ3783/demospringapp:latest"
+                 sh "docker push champ3783/demospringapp:latest"
+                }
+                }
         }
        
         stage('Docker deploy'){

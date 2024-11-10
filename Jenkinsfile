@@ -44,6 +44,8 @@ pipeline {
                     'credentialsId':"dockerid",
                     passwordVariable: "dockerpass",
                     usernameVariable: "dockeruser")])
+            }
+        }
        
         stage('Docker deploy'){
             steps {

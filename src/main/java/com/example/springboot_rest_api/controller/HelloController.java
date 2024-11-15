@@ -12,4 +12,9 @@ public class HelloController {
     public String sayHello() {
         return "Hello, This is CICD Jenkins Project !!";
     }
+
+    @GetMapping("/test")
+    public String sayHello() {
+        return "Hello, This is a test project !!";
+    }
 }

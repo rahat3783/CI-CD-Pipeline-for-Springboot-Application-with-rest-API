@@ -14,7 +14,7 @@ public class HelloController {
     }
 
     @GetMapping("/test")
-    public String sayHello() {
+    public String sayTest() {
         return "Hello, This is a test project !!";
     }
 }

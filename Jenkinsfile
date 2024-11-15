@@ -38,7 +38,7 @@ pipeline {
             steps{
                 echo "pushing image to dockerhub"
                withCredentials([usernamePassword(
-                    'credentialsId':"dockerid",
+                    'credentialsId':"dockercred",
                     passwordVariable: "dockerpass",
                     usernameVariable: "dockeruser")]){
                  sh "docker login -u ${env.dockeruser} -p ${env.dockerpass}"

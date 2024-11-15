@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   web:
-    build: .
+    image: champ3783/demospringapp:latest
     ports:
       - "8081:8080"
     volumes:
